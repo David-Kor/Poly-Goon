@@ -18,7 +18,7 @@ public class PlayerInputManager : MonoBehaviour
 
     void Update()
     {
-        if (isDead) { return; }
+        if (isDead) { Time.timeScale = 0; return; }
 
         //left키 입력 AND l_block상태가 아닐 때
         if (Input.GetKey("left") && !l_block)

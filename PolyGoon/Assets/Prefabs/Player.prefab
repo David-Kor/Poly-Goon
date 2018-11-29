@@ -87,7 +87,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1067874052259384}
   m_LocalRotation: {x: 0, y: 0, z: 0.5, w: 0.8660254}
-  m_LocalPosition: {x: -0.15, y: 0.25, z: 0}
+  m_LocalPosition: {x: -0.19, y: 0.18, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4563336422779792}
@@ -101,7 +101,7 @@ Transform:
   m_GameObject: {fileID: 1477034204261902}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_Children:
   - {fileID: 4563336422779792}
   m_Father: {fileID: 0}
@@ -114,7 +114,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1657329568979152}
   m_LocalRotation: {x: 0, y: 0, z: -0.5, w: 0.8660254}
-  m_LocalPosition: {x: 0.15, y: 0.25, z: 0}
+  m_LocalPosition: {x: 0.19, y: 0.18, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4563336422779792}
@@ -153,7 +153,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!60 &60169125413748574
 PolygonCollider2D:
@@ -205,7 +205,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.2, y: 0.1}
+  m_Size: {x: 0.7, y: 0.08}
   m_EdgeRadius: 0
 --- !u!61 &61882405293475644
 BoxCollider2D:
@@ -230,7 +230,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.2, y: 0.1}
+  m_Size: {x: 0.7, y: 0.08}
   m_EdgeRadius: 0
 --- !u!114 &114044770179357726
 MonoBehaviour:

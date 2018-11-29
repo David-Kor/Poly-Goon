@@ -57,6 +57,8 @@
      <Compile Include="Assets\Script\GameScreen.cs" />
      <Compile Include="Assets\Script\MenuScreen.cs" />
      <Compile Include="Assets\Script\Obstacle.cs" />
+     <Compile Include="Assets\Script\ObstacleCreator.cs" />
+     <Compile Include="Assets\Script\ObstaclePattern.cs" />
      <Compile Include="Assets\Script\PlayerBody.cs" />
      <Compile Include="Assets\Script\PlayerInputManager.cs" />
      <Compile Include="Assets\Script\Screen.cs" />
