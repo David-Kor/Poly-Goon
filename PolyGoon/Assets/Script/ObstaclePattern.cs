@@ -6,8 +6,8 @@ public class ObstaclePattern : MonoBehaviour
 {
     public GameObject origin_obstacle;
     public int edge_count;
+    public float speed;
     public string[] patternList;
-    public Queue<GameObject> q_pattern;
 
     void Start()
     {
@@ -16,8 +16,18 @@ public class ObstaclePattern : MonoBehaviour
         {
             obst = Instantiate(origin_obstacle).GetComponent<Obstacle>();
             obst.transform.localScale += Vector3.one * i;
+            obst.speed = speed;
+
             for (int j = 0; j < edge_count; j++)
             {
+                //패턴의 길이가 edge_count보다 짧은 경우(입력 실수)
+                //뒷부분을 전부 false로 처리
+                if (patternList[i].Length <= j)
+                {
+                    obst.SetObstacleActive(j, false);
+                    continue;
+                }
+
                 if (patternList[i][j] == 'T')
                 {
                     obst.SetObstacleActive(j, true);
