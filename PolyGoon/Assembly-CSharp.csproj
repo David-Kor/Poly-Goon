@@ -54,14 +54,19 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Script\BlockRotate.cs" />
-     <Compile Include="Assets\Script\GameScreen.cs" />
-     <Compile Include="Assets\Script\MenuScreen.cs" />
+     <Compile Include="Assets\Script\bScore.cs" />
+     <Compile Include="Assets\Script\ButtonManager.cs" />
+     <Compile Include="Assets\Script\Hexagon.cs" />
+     <Compile Include="Assets\Script\Music.cs" />
      <Compile Include="Assets\Script\Obstacle.cs" />
      <Compile Include="Assets\Script\ObstacleCreator.cs" />
      <Compile Include="Assets\Script\ObstaclePattern.cs" />
+     <Compile Include="Assets\Script\Option.cs" />
      <Compile Include="Assets\Script\PlayerBody.cs" />
      <Compile Include="Assets\Script\PlayerInputManager.cs" />
-     <Compile Include="Assets\Script\Screen.cs" />
+     <Compile Include="Assets\Script\PlayerMovement.cs" />
+     <Compile Include="Assets\Script\pScore.cs" />
+     <Compile Include="Assets\Script\Timer.cs" />
  <Reference Include="UnityEditor.StandardEvents">
  <HintPath>C:/Users/David/Documents/공부자료/Unity/Polygoon/PolyGoon/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
  </Reference>
