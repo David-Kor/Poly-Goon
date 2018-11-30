@@ -5,7 +5,7 @@ using UnityEngine;
 public class ObstacleCreator : MonoBehaviour
 {
     public GameObject[] patternList;
-
+    
     private ObstaclePattern pattern;
     public GameObject lastObstacle;
     private bool doCreatPattern;
