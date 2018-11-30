@@ -55,25 +55,21 @@ MonoBehaviour:
     type: 2}
   edge_count: 6
   speed: 8
+  reverse_pattern: 1
   patternList:
   - FFFFFT
-  - FFFFFF
   - FFFFFF
   - FFFFFF
   - FFFFTF
   - FFFFFF
   - FFFFFF
-  - FFFFFF
   - FFFTFF
-  - FFFFFF
   - FFFFFF
   - FFFFFF
   - FFTFFF
   - FFFFFF
   - FFFFFF
-  - FFFFFF
   - FTFFFF
-  - FFFFFF
   - FFFFFF
   - FFFFFF
   - TFFFFF

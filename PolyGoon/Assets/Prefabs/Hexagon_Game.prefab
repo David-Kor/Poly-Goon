@@ -140,7 +140,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1956893981267214
 GameObject:
   m_ObjectHideFlags: 1
@@ -193,7 +193,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1956893981267214}
   m_LocalRotation: {x: -0, y: -0, z: -0.5, w: 0.8660254}
-  m_LocalPosition: {x: 0.076, y: 1.56, z: 0}
+  m_LocalPosition: {x: 0.1, y: 1.56, z: 0}
   m_LocalScale: {x: 0.39999998, y: 0.39999998, z: 1}
   m_Children: []
   m_Father: {fileID: 4863377907595560}
@@ -235,7 +235,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1842740080852154}
   m_LocalRotation: {x: -0, y: -0, z: 0.5, w: 0.8660254}
-  m_LocalPosition: {x: -0.076, y: 1.56, z: 0}
+  m_LocalPosition: {x: -0.1, y: 1.56, z: 0}
   m_LocalScale: {x: 0.39999998, y: 0.39999998, z: 1}
   m_Children: []
   m_Father: {fileID: 4863377907595560}
@@ -353,7 +353,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.73, y: 0.2}
+  m_Size: {x: 0.79, y: 0.2}
   m_EdgeRadius: 0
 --- !u!61 &61543077500949154
 BoxCollider2D:
@@ -378,7 +378,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.73, y: 0.2}
+  m_Size: {x: 0.79, y: 0.2}
   m_EdgeRadius: 0
 --- !u!114 &114088330237601330
 MonoBehaviour:
@@ -442,6 +442,8 @@ MonoBehaviour:
   - {fileID: 1099477094461690, guid: 02161b5ca1bff37468b50c39002cc7cd, type: 2}
   - {fileID: 1386618363803006, guid: af9013e60dea8aa4aa912c46df387d93, type: 2}
   - {fileID: 1903527918532882, guid: f1bf8d4e1ecb23e498722e4faa8569d5, type: 2}
+  - {fileID: 1099477094461690, guid: 752bf35c7136bd5428097ab137359ae2, type: 2}
+  - {fileID: 1099477094461690, guid: 252b8cf7c1ac4c94ba542391c5617748, type: 2}
   lastObstacle: {fileID: 0}
 --- !u!212 &212125305083560758
 SpriteRenderer:
