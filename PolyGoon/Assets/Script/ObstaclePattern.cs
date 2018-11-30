@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class ObstaclePattern : MonoBehaviour
@@ -8,15 +7,21 @@ public class ObstaclePattern : MonoBehaviour
     public int edge_count;
     public float speed;
     public string[] patternList;
+    private Queue<GameObject> q_obstacle;    //장애물 큐
 
-    void Start()
+    public void InitPattern()
     {
         Obstacle obst;
+        q_obstacle = new Queue<GameObject>();
+
         for (int i = 0; i < patternList.Length; i++)
         {
             obst = Instantiate(origin_obstacle).GetComponent<Obstacle>();
             obst.transform.localScale += Vector3.one * i;
             obst.speed = speed;
+            obst.active = false;
+            q_obstacle.Enqueue(obst.gameObject);
+
 
             for (int j = 0; j < edge_count; j++)
             {
@@ -38,6 +43,26 @@ public class ObstaclePattern : MonoBehaviour
                 }
             }
         }
+
+    }
+
+    public GameObject ActivateDequeueObstacle()
+    {
+        if (q_obstacle.Count == 0) { return null; }
+
+        GameObject obst = q_obstacle.Dequeue();
+        obst.GetComponent<Obstacle>().active = true;
+        return obst;
+    }
+
+    public bool IsEmpty()
+    {
+        return q_obstacle.Count == 0;
+    }
+
+    public int GetCountQueue()
+    {
+        return q_obstacle.Count;
     }
 
 }
