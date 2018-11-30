@@ -1,0 +1,4 @@
+sceneSetups:
+- path: "C:/Users/David/Documents/\uACF5\uBD80\uC790\uB8CC/Unity/Polygoon/Assets/Scenes/UI.unity"
+  isLoaded: 1
+  isActive: 1
