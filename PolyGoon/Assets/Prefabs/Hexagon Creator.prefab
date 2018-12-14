@@ -55,3 +55,5 @@ MonoBehaviour:
   - {fileID: 1099477094461690, guid: 02161b5ca1bff37468b50c39002cc7cd, type: 2}
   - {fileID: 1386618363803006, guid: af9013e60dea8aa4aa912c46df387d93, type: 2}
   - {fileID: 1903527918532882, guid: f1bf8d4e1ecb23e498722e4faa8569d5, type: 2}
+  - {fileID: 1099477094461690, guid: 752bf35c7136bd5428097ab137359ae2, type: 2}
+  lastObstacle: {fileID: 0}

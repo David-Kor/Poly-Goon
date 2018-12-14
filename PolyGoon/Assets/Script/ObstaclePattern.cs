@@ -3,16 +3,39 @@ using UnityEngine;
 
 public class ObstaclePattern : MonoBehaviour
 {
+    //장애물 원형
     public GameObject origin_obstacle;
+    //장애물의 변 개수
     public int edge_count;
+    //장애물 속도
     public float speed;
+    //(랜덤)패턴 뒤집기
+    public bool reverse_pattern = false;
+    //장애물 패턴 목록
     public string[] patternList;
-    private Queue<GameObject> q_obstacle;    //장애물 큐
+    //장애물 패턴들의 큐
+    private Queue<GameObject> q_obstacle;
 
     public void InitPattern()
     {
         Obstacle obst;
         q_obstacle = new Queue<GameObject>();
+        
+        //패턴 뒤집기가 true면 50%확률로 패턴을 뒤집음
+        if (reverse_pattern)
+        {
+            if (Random.Range(0, 2) == 0)
+            {
+                string tmpstr;
+                System.Array.Reverse(patternList);
+                for (int i = 0; i < patternList.Length - 3; i++)
+                {
+                    tmpstr = patternList[i];
+                    patternList[i] = patternList[i + 3];
+                    patternList[i + 3] = tmpstr;
+                }
+            }
+        }
 
         for (int i = 0; i < patternList.Length; i++)
         {

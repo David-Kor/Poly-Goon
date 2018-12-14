@@ -55,6 +55,7 @@ MonoBehaviour:
     type: 2}
   edge_count: 6
   speed: 5
+  reverse_pattern: 1
   patternList:
   - FFFTTT
   - TFFTTT

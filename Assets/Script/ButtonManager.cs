@@ -1,19 +1,21 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
-public class ButtonManager : MonoBehaviour {
+public class ButtonManager : MonoBehaviour
+{
+    RankSystem rankSystem = new RankSystem();
+
     private bool pOption_flag;
     private bool pScreen_flag;
     private bool namePanel_flag;
     private bool checkPanel_flag;
     private bool errorChange_flag;
-    private bool selectPolygoon_flag;
-    private bool Hexagon_flag;
-    private bool Pentagon_flag;
-    private bool Circle_flag;
+    static public bool selectPolygoon_flag;
+    static public bool Hexagon_flag;
+    static public bool Pentagon_flag;
+    static public bool Circle_flag;
+    static public bool Game_Result_flag;
+    private bool UI_Text_flag;
 
     public GameObject pOption;          //옵션 화면 판넬
     public GameObject pScreen;          //초기 화면 판넬
@@ -24,6 +26,10 @@ public class ButtonManager : MonoBehaviour {
     public GameObject Hexagon_Game;
     public GameObject Penagon_Game;
     public GameObject Circle_Game;
+    public GameObject UI_Text;
+    public GameObject Game_Result;
+   
+
 
     public InputField 이름입력;     //사용자에게 변경할 이름을 받는 InputField
 
@@ -38,6 +44,9 @@ public class ButtonManager : MonoBehaviour {
         checkPanel_flag = false;
         errorChange_flag = false;
         selectPolygoon_flag = false;
+        UI_Text_flag = false;
+        Game_Result_flag = false;
+
         Hexagon_flag = false;
         Pentagon_flag = false;
         Circle_flag = false;
@@ -47,6 +56,8 @@ public class ButtonManager : MonoBehaviour {
         namePanel.SetActive(namePanel_flag);
         checkPanel.SetActive(checkPanel_flag);
         selectPolygoon.SetActive(selectPolygoon_flag);
+        UI_Text.SetActive(UI_Text_flag);
+        Game_Result.SetActive(Game_Result_flag);
         //레지스트리에 저장된 사용자 이름 호출
         사용자이름.text = PlayerPrefs.GetString("Playername", 사용자이름.text);
     }
@@ -154,7 +165,9 @@ public class ButtonManager : MonoBehaviour {
         {
             selectPolygoon_flag = !selectPolygoon_flag;
             Hexagon_flag = !Hexagon_flag;
+            UI_Text_flag = !UI_Text_flag;
 
+            UI_Text.SetActive(UI_Text_flag);
             selectPolygoon.SetActive(selectPolygoon_flag);
             Hexagon_Game.SetActive(Hexagon_flag);
         }
@@ -165,9 +178,11 @@ public class ButtonManager : MonoBehaviour {
         {
             selectPolygoon_flag = !selectPolygoon_flag;
             Pentagon_flag = !Pentagon_flag;
+            UI_Text_flag = !UI_Text_flag;
 
             selectPolygoon.SetActive(selectPolygoon_flag);
             Penagon_Game.SetActive(Pentagon_flag);
+            UI_Text.SetActive(UI_Text_flag);
         }
     }
     public void Click_Circle()
@@ -176,9 +191,21 @@ public class ButtonManager : MonoBehaviour {
         {
             selectPolygoon_flag = !selectPolygoon_flag;
             Circle_flag = !Circle_flag;
+            UI_Text_flag = !UI_Text_flag;
 
             selectPolygoon.SetActive(selectPolygoon_flag);
             Circle_Game.SetActive(Circle_flag);
+            UI_Text.SetActive(UI_Text_flag);
         } 
+    }
+    public void GameOver()
+    {
+            Game_Result_flag = !Game_Result_flag;
+            Game_Result.SetActive(Game_Result_flag);
+    }
+
+    void rHexagon()
+    {
+        rankSystem.LoadHexagon();
     }
 }
