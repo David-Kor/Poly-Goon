@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerInputManager : MonoBehaviour
 {
@@ -18,7 +16,10 @@ public class PlayerInputManager : MonoBehaviour
 
     void Update()
     {
+        //죽었을 경우 시간을 멈춤
         if (isDead) { Time.timeScale = 0; return; }
+        //게임의 블록을 해제하면 다시 시간이 흐름
+        else if (Time.timeScale != 1) { Time.timeScale = 1; }
 
         //left키 입력 AND l_block상태가 아닐 때
         if (Input.GetKey("left") && !l_block)
@@ -46,4 +47,6 @@ public class PlayerInputManager : MonoBehaviour
     public void RightUnBlock() { r_block = false; }
 
     public void DeadBlock() { isDead = true; }
+
+    public void Restart() { isDead = false; }
 }

@@ -140,7 +140,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1956893981267214
 GameObject:
   m_ObjectHideFlags: 1
@@ -443,7 +443,7 @@ MonoBehaviour:
   - {fileID: 1386618363803006, guid: af9013e60dea8aa4aa912c46df387d93, type: 2}
   - {fileID: 1903527918532882, guid: f1bf8d4e1ecb23e498722e4faa8569d5, type: 2}
   - {fileID: 1099477094461690, guid: 752bf35c7136bd5428097ab137359ae2, type: 2}
-  - {fileID: 1099477094461690, guid: 252b8cf7c1ac4c94ba542391c5617748, type: 2}
+  - {fileID: 1500186473534176, guid: 252b8cf7c1ac4c94ba542391c5617748, type: 2}
   lastObstacle: {fileID: 0}
 --- !u!212 &212125305083560758
 SpriteRenderer:
