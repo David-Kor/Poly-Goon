@@ -7,8 +7,8 @@ public class ButtonManager : MonoBehaviour
 
     private bool pOption_flag;
     private bool pScreen_flag;
-    private bool namePanel_flag;
-    private bool checkPanel_flag;
+    private bool Change_name_flag;
+    private bool Check_Change_flag;
     private bool errorChange_flag;
     static public bool selectPolygoon_flag;
     static public bool Hexagon_flag;
@@ -17,51 +17,64 @@ public class ButtonManager : MonoBehaviour
     static public bool Game_Result_flag;
     private bool UI_Text_flag;
 
-    public GameObject pOption;          //옵션 화면 판넬
-    public GameObject pScreen;          //초기 화면 판넬
-    public GameObject namePanel;        //이름변경 화면 판넬
-    public GameObject checkPanel;       //이름변경 확인 화면 판넬
-    public GameObject errorPanel;       //변경할 이름이 공백인 경우 출력 판넬
-    public GameObject selectPolygoon;   //도형 선택 판넬   
-    public GameObject Hexagon_Game;
-    public GameObject Penagon_Game;
-    public GameObject Circle_Game;
-    public GameObject UI_Text;
-    public GameObject Game_Result;
-   
+    GameObject pOption;          //옵션 화면 판넬
+    GameObject pScreen;          //초기 화면 판넬
+    GameObject Change_name;        //이름변경 화면 판넬
+    GameObject Check_Change;       //이름변경 확인 화면 판넬
+    GameObject Error_Change;       //변경할 이름이 공백인 경우 출력 판넬
+    GameObject selectPolygoon;   //도형 선택 판넬   
+    static public GameObject UI_Text;
+    GameObject Game_Result;
+    GameObject Rank;
+
+    GameObject Hexagon_Game;
+    GameObject Pentagon_Game;
+    GameObject Circle_Game;
 
 
-    public InputField 이름입력;     //사용자에게 변경할 이름을 받는 InputField
 
-    public Text 사용자이름;         //사용자 이름을 받아올 변수
-    public Text 입력받는text;       //InputField의 값을 저장할 변수
+    InputField 이름입력;     //사용자에게 변경할 이름을 받는 InputField
+
+    static public Text 사용자이름;         //사용자 이름을 받아올 변수
+    Text 입력받는text;       //InputField의 값을 저장할 변수
 
     void Start ()
     {
-        pScreen_flag = true;
-        pOption_flag = false;
-        namePanel_flag = false;
-        checkPanel_flag = false;
-        errorChange_flag = false;
-        selectPolygoon_flag = false;
-        UI_Text_flag = false;
-        Game_Result_flag = false;
+        pScreen = transform.Find("Canvas/pScreen").gameObject;
+        pOption = transform.Find("Canvas/pOption").gameObject;
+        Change_name = transform.Find("Canvas/Change_name").gameObject;
+        Check_Change = transform.Find("Canvas/Check_Change").gameObject;
+        Error_Change = transform.Find("Canvas/Error_Change").gameObject;
+        selectPolygoon = transform.Find("Canvas/SelectPolygoon").gameObject;
+        UI_Text = transform.Find("Canvas/UI_Text").gameObject;
+        Game_Result = transform.Find("Canvas/Game_Result").gameObject;
+        Rank = transform.Find("Canvas/Rank").gameObject;
 
-        Hexagon_flag = false;
-        Pentagon_flag = false;
-        Circle_flag = false;
+        이름입력 = transform.Find("Canvas/Change_name/InputField").GetComponent<InputField>();
+        사용자이름 = transform.Find("Canvas/pOption/사용자이름").GetComponent<Text>();
+        입력받는text = transform.Find("Canvas/Check_Change/Text").GetComponent<Text>();
 
-        pScreen.SetActive(pScreen_flag);
-        pOption.SetActive(pOption_flag);
-        namePanel.SetActive(namePanel_flag);
-        checkPanel.SetActive(checkPanel_flag);
-        selectPolygoon.SetActive(selectPolygoon_flag);
-        UI_Text.SetActive(UI_Text_flag);
-        Game_Result.SetActive(Game_Result_flag);
+        Hexagon_Game = GameObject.Find("Hexagon_Game").gameObject;
+        Pentagon_Game = GameObject.Find("Pentagon_Game").gameObject;
+        Circle_Game = GameObject.Find("Circle_Game").gameObject;
+
+        pScreen.SetActive(true);
+        pOption.SetActive(false);
+        Change_name.SetActive(false);
+        Check_Change.SetActive(false);
+        selectPolygoon.SetActive(false);
+        UI_Text.SetActive(false);
+        Game_Result.SetActive(false);
+
+        Hexagon_Game.SetActive(false);
+        Pentagon_Game.SetActive(false);
+        Circle_Game.SetActive(false);
+
         //레지스트리에 저장된 사용자 이름 호출
         사용자이름.text = PlayerPrefs.GetString("Playername", 사용자이름.text);
+
+        Debug.Log(Hexagon_Game.name);
     }
-	
 	// Update is called once per frame
 	void Update ()
     {
@@ -70,25 +83,19 @@ public class ButtonManager : MonoBehaviour
 
     public void GameStart()
     {
-        if (selectPolygoon_flag == false)
+        if (selectPolygoon.active == false)
         {
-            selectPolygoon_flag = !selectPolygoon_flag;
-            pScreen_flag = !pScreen_flag;
-
-            selectPolygoon.SetActive(selectPolygoon_flag);
-            pScreen.SetActive(pScreen_flag);
+            selectPolygoon.SetActive(true);
+            pScreen.SetActive(false);
         }
     }          //게임 시작
     public void Option()
     {
-        if (pOption_flag == false)
+        if (pOption.active == false)
         {
-            pOption_flag = !pOption_flag;
-            pScreen_flag = !pScreen_flag;
-
+            pOption.SetActive(true);
+            pScreen.SetActive(false);
         }
-        pOption.SetActive(pOption_flag);
-        pScreen.SetActive(pScreen_flag);
     }             //옵션 설정
     public void Quit()
     {
@@ -96,112 +103,94 @@ public class ButtonManager : MonoBehaviour
     }               //프로그램 종료 
     public void Sumbit()
     {
-        if (pOption_flag == true)
+        if (pOption.active == true)
         {
-            pOption_flag = !pOption_flag;
-            pScreen_flag = !pScreen_flag;
+            pOption.SetActive(false);
+            pScreen.SetActive(true);
         }
-        pOption.SetActive(pOption_flag);
-        pScreen.SetActive(pScreen_flag);
     }             //옵션창 끄기(확인)
     public void Change_Name()
     {
-        if(namePanel_flag == false)
+        if(Change_name_flag == false)
         {
-            namePanel_flag = !namePanel_flag;
+            Change_name.SetActive(true);
         }
-        namePanel.SetActive(namePanel_flag);
     }        //이름 변경하는 판넬 호출
-    public void Check_Change()
+    public void fCheck_Change()
     {
         if(이름입력.text == "")
         {
-            errorChange_flag = !errorChange_flag;
-            errorPanel.SetActive(errorChange_flag);
+            Error_Change.SetActive(true);
         }
         else
         {
-
-            if (checkPanel_flag == false)
+            if (Check_Change.active == false)
             {
-                checkPanel_flag = !checkPanel_flag;
-                checkPanel.SetActive(checkPanel_flag);
-
+                Check_Change.SetActive(true);
                 입력받는text.text = 이름입력.text;
             }
             else
             {
-                checkPanel.SetActive(checkPanel_flag);
+                Check_Change.SetActive(false);
             }
         }
     }       //해당 이름으로 변경할 것인지 확인
     public void yes()
     {
-        사용자이름.text = 입력받는text.text;
-        checkPanel_flag = !checkPanel_flag;
-        namePanel_flag = !namePanel_flag;
-
-        checkPanel.SetActive(checkPanel_flag);
-        namePanel.SetActive(namePanel_flag);
+        Check_Change.SetActive(false);
+        Change_name.SetActive(false);
+        사용자이름.text = 이름입력.text;
         PlayerPrefs.SetString("Playername", 사용자이름.text);
     }                //사용자 이름 변경 확정
     public void no()
     {
-        checkPanel_flag = !checkPanel_flag;
-        namePanel_flag = !namePanel_flag;
-
-        checkPanel.SetActive(checkPanel_flag);
-        namePanel.SetActive(namePanel_flag);
+        Check_Change.SetActive(false);
+        Change_name.SetActive(false);
     }                 //사용자 이름 변경 취소
     public void error_Sumbit()
     {
-        if(errorChange_flag == true)
-            errorChange_flag = !errorChange_flag;
-        errorPanel.SetActive(errorChange_flag);
+        if (Error_Change.active == true)
+            Error_Change.active = !Error_Change.active;
+        Error_Change.SetActive(Error_Change.active);
+    }
+    public void Active_Rank()
+    {
+        Rank.SetActive(true);
+    }
+    public void Unactive_Rank()
+    {
+        Rank.SetActive(false);
     }
     public void Click_Hexagon()
     {
-        if (selectPolygoon_flag == true)
+        if (selectPolygoon.active == true)
         {
-            selectPolygoon_flag = !selectPolygoon_flag;
-            Hexagon_flag = !Hexagon_flag;
-            UI_Text_flag = !UI_Text_flag;
-
-            UI_Text.SetActive(UI_Text_flag);
-            selectPolygoon.SetActive(selectPolygoon_flag);
-            Hexagon_Game.SetActive(Hexagon_flag);
+            selectPolygoon.SetActive(false);
+            Hexagon_Game.SetActive(true);
+            UI_Text.SetActive(true);
         }
     }
     public void Click_Pentagon()
     {
-        if (selectPolygoon_flag == true)
+        if (selectPolygoon.active == true)
         {
-            selectPolygoon_flag = !selectPolygoon_flag;
-            Pentagon_flag = !Pentagon_flag;
-            UI_Text_flag = !UI_Text_flag;
-
-            selectPolygoon.SetActive(selectPolygoon_flag);
-            Penagon_Game.SetActive(Pentagon_flag);
-            UI_Text.SetActive(UI_Text_flag);
+            selectPolygoon.SetActive(false);
+            Pentagon_Game.SetActive(true);
+            UI_Text.SetActive(true);
         }
     }
     public void Click_Circle()
     {
-        if (selectPolygoon_flag == true)
+        if (selectPolygoon.active == true)
         {
-            selectPolygoon_flag = !selectPolygoon_flag;
-            Circle_flag = !Circle_flag;
-            UI_Text_flag = !UI_Text_flag;
-
-            selectPolygoon.SetActive(selectPolygoon_flag);
-            Circle_Game.SetActive(Circle_flag);
-            UI_Text.SetActive(UI_Text_flag);
+            selectPolygoon.SetActive(false);
+            Circle_Game.SetActive(true);
+            UI_Text.SetActive(true);
         } 
     }
     public void GameOver()
     {
-            Game_Result_flag = !Game_Result_flag;
-            Game_Result.SetActive(Game_Result_flag);
+        Game_Result.SetActive(true);
     }
 
     void rHexagon()

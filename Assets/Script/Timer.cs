@@ -15,7 +15,7 @@ public class Timer : MonoBehaviour {
     void Start ()
     {
         startTime = Time.time;                             //시간 초기화
-        Timertext = GameObject.Find("Canvas").transform.Find("UI_Text").transform.Find("Time").transform.Find("Time_Count").GetComponent<Text>();
+        Timertext = GameObject.Find("Canvas/UI_Text/Time/Time_Count").GetComponent<Text>();
 
     }
 
