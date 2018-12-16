@@ -26,4 +26,13 @@ public class Obstacle : MonoBehaviour
     {
         transform.GetChild(index).gameObject.SetActive(active);
     }
+
+    public static void ClearObstacles()
+    {
+        GameObject[] obstacles = GameObject.FindGameObjectsWithTag("Obstacle");
+        for (int i = 0; i < obstacles.Length; i++)
+        {
+            Destroy(obstacles[i].gameObject);
+        }
+    }
 }

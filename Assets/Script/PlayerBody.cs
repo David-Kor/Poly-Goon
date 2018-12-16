@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerBody : MonoBehaviour
 {
+    GameObject Game_Result;
+
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.CompareTag("DeathLine"))
@@ -11,5 +13,5 @@ public class PlayerBody : MonoBehaviour
             GetComponentInParent<PlayerInputManager>().DeadBlock();
             Debug.Log("Death!  " + col.name + "  to  " + gameObject.name);
         }
-    }
+    }  
 }

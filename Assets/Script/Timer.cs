@@ -12,6 +12,7 @@ public class Timer : MonoBehaviour {
     private float countTime = 0.5F;                          //최초로 점수가 시작되는 시간(단위: 초)
     private float addTime = 0.5F;                            //최초로 점수가 추가된 이후로 몇 초 뒤에 점수를 추가할지 설정.
 
+    static public float t;
     void Start ()
     {
         startTime = Time.time;                             //시간 초기화
@@ -21,7 +22,7 @@ public class Timer : MonoBehaviour {
 
     void Update()
     {
-        float t = Time.time - startTime;
+        t = Time.time - startTime;
 
         string Minutes = ((int)t / 60).ToString("d2");
         string Seconds = ((int)t % 60).ToString("d2");

@@ -10,30 +10,31 @@ public class BestScore: MonoBehaviour {
     GameObject Circle_Game;
 
     int bestScore = 0;
-    int start = 0;
 
     private Text Best_Score_Count;     //최고점수를 출력할 텍스트
 
 	void Start () {
         Hexagon_Game = GameObject.Find("Hexagon_Game").gameObject;
-        //Pentagon_Game = GameObject.Find("Pentagon_Game").gameObject;
-        //Circle_Game = GameObject.Find("Circle_Game").gameObject;
+        Pentagon_Game = GameObject.Find("Pentagon_Game").gameObject;
+        Circle_Game = GameObject.Find("Circle_Game").gameObject;
 
         Best_Score_Count = GameObject.Find("Canvas/UI_Text/Best_Score/Best_Score_Count").GetComponent<Text>();
 	}
-	
-	// Update is called once per frame
-	void Update ()
+    void Update()
     {
-        Check();
-	}
+        Check();    
+    }
+    // Update is called once per frame
     void Check()
     {
         if(Hexagon_Game.active == true)
         {
-            if (RankSystem.hexagonBestScore[0] > Score.score)
+            RankSystem.LoadHexagon();
+            bestScore = int.Parse(RankSystem.hexagonBestScore[0].text);
+
+            if (int.Parse(RankSystem.hexagonBestScore[0].text) > Score.score)
             {
-                Best_Score_Count.text = RankSystem.hexagonBestScore[0].ToString();
+                Best_Score_Count.text = bestScore.ToString();
             }
             else
             {
@@ -41,29 +42,33 @@ public class BestScore: MonoBehaviour {
                 Best_Score_Count.text = bestScore.ToString();
             }
         }
-        /*else if(Pentagon_Game.active == true)
+        else if(Pentagon_Game.active == true)
         {
-            if (RankSystem.pentagonBestScore[0] > Score.score)
+            bestScore = int.Parse(RankSystem.pentagonBestScore[0].text);
+
+            if (int.Parse(RankSystem.pentagonBestScore[0].text) > Score.score)
             {
-                Best_Score_Count.text = RankSystem.pentagonBestScore.ToString();
+                Best_Score_Count.text = bestScore.ToString();
             }
             else
             {
                 bestScore = Score.score;
-                Best_Score_Count.text = RankSystem.pentagonBestScore[0].ToString();
+                Best_Score_Count.text = bestScore.ToString();
             }
         }
-        else
+        else if (Circle_Game.active == true) 
         {
-            if (RankSystem.hexagonBestScore[0] > Score.score)
+            bestScore = int.Parse(RankSystem.circleBestScore[0].text);
+
+            if (int.Parse(RankSystem.circleBestScore[0].text) > Score.score)
             {
-                Best_Score_Count.text = RankSystem.circleBestScore.ToString();
+                Best_Score_Count.text = bestScore.ToString();
             }
             else
             {
                 bestScore = Score.score;
-                Best_Score_Count.text = RankSystem.circleBestScore[0].ToString();
+                Best_Score_Count.text = bestScore.ToString();
             }
-        }*/
+        }
     }
 }

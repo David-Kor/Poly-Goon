@@ -46,4 +46,11 @@ public class PlayerInputManager : MonoBehaviour
     public void RightUnBlock() { r_block = false; }
 
     public void DeadBlock() { isDead = true; }
+    public void Reset()
+    {
+        isDead = false;
+        Time.timeScale = 1f;
+        l_block = false;
+        r_block = false;
+    }
 }

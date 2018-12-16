@@ -27,9 +27,9 @@ public class ButtonManager : MonoBehaviour
     GameObject Game_Result;
     GameObject Rank;
 
-    GameObject Hexagon_Game;
-    GameObject Pentagon_Game;
-    GameObject Circle_Game;
+    static public GameObject Hexagon_Game;
+    static public GameObject Pentagon_Game;
+    static public GameObject Circle_Game;
 
 
 
@@ -65,6 +65,7 @@ public class ButtonManager : MonoBehaviour
         selectPolygoon.SetActive(false);
         UI_Text.SetActive(false);
         Game_Result.SetActive(false);
+        Rank.SetActive(false);
 
         Hexagon_Game.SetActive(false);
         Pentagon_Game.SetActive(false);
@@ -156,14 +157,16 @@ public class ButtonManager : MonoBehaviour
     public void Active_Rank()
     {
         Rank.SetActive(true);
+        pOption.SetActive(false);
     }
     public void Unactive_Rank()
     {
         Rank.SetActive(false);
+        pScreen.SetActive(true);
     }
     public void Click_Hexagon()
     {
-        if (selectPolygoon.active == true)
+        if (selectPolygoon.activeSelf == true)
         {
             selectPolygoon.SetActive(false);
             Hexagon_Game.SetActive(true);
@@ -172,7 +175,7 @@ public class ButtonManager : MonoBehaviour
     }
     public void Click_Pentagon()
     {
-        if (selectPolygoon.active == true)
+        if (selectPolygoon.activeSelf == true)
         {
             selectPolygoon.SetActive(false);
             Pentagon_Game.SetActive(true);
@@ -181,7 +184,7 @@ public class ButtonManager : MonoBehaviour
     }
     public void Click_Circle()
     {
-        if (selectPolygoon.active == true)
+        if (selectPolygoon.activeSelf == true)
         {
             selectPolygoon.SetActive(false);
             Circle_Game.SetActive(true);
@@ -191,10 +194,5 @@ public class ButtonManager : MonoBehaviour
     public void GameOver()
     {
         Game_Result.SetActive(true);
-    }
-
-    void rHexagon()
-    {
-        rankSystem.LoadHexagon();
     }
 }
