@@ -76,6 +76,7 @@ public class PlayerInputManager : MonoBehaviour
     {
         gameOverUI.SetActive(false);
         Obstacle.ClearObstacles();
+        Score.score = 0;
         Reset();
     }
 

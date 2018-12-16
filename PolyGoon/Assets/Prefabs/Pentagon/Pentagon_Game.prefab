@@ -93,7 +93,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1491258873914650
 GameObject:
   m_ObjectHideFlags: 1
@@ -328,8 +328,8 @@ PolygonCollider2D:
   m_Points:
     m_Paths:
     - - {x: 0, y: 0.5}
-      - {x: -0.20324448, y: 0.13486202}
-      - {x: 0.20324413, y: 0.13486202}
+      - {x: -0.35238397, y: -0.12475133}
+      - {x: 0.36343092, y: -0.1302743}
 --- !u!61 &61032769178395328
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -428,6 +428,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf230d206d3ab67428f0d600aeeb6720, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameOverUI: {fileID: 0}
   speed: 4
 --- !u!114 &114885251732472484
 MonoBehaviour:

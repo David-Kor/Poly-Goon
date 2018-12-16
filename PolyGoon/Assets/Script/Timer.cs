@@ -6,20 +6,23 @@ using UnityEngine;
 public class Timer : MonoBehaviour {
     public static bool GameOver = false;                    //게임오버 구현되면 사용할 부분
 
-    public Text Timertext;
+    private Text Timertext;
 
     private float startTime;
-    private float countTime = 10;                          //최초로 점수가 시작되는 시간(단위: 초)
-    private float addTime = 10;                            //최초로 점수가 추가된 이후로 몇 초 뒤에 점수를 추가할지 설정.
+    private float countTime = 0.5F;                          //최초로 점수가 시작되는 시간(단위: 초)
+    private float addTime = 0.5F;                            //최초로 점수가 추가된 이후로 몇 초 뒤에 점수를 추가할지 설정.
 
+    static public float t;
     void Start ()
     {
         startTime = Time.time;                             //시간 초기화
-	}
+        Timertext = GameObject.Find("Canvas/UI_Text/Time/Time_Count").GetComponent<Text>();
+
+    }
 
     void Update()
     {
-        float t = Time.time - startTime;
+        t = Time.time - startTime;
 
         string Minutes = ((int)t / 60).ToString("d2");
         string Seconds = ((int)t % 60).ToString("d2");
@@ -32,7 +35,7 @@ public class Timer : MonoBehaviour {
 
         if (countTime < t)
         {
-            pScore.score += 100;
+            Score.score += 100;
             countTime = addTime + t;
         }
     }
