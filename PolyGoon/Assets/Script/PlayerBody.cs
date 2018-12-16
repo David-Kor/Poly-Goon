@@ -7,7 +7,7 @@ public class PlayerBody : MonoBehaviour
     {
         if (col.CompareTag("DeathLine"))
         {
-            GetComponentInParent<PlayerInputManager>().DeadBlock();
+            GetComponentInParent<PlayerInputManager>().PlayerDeath();
             Debug.Log("Death!  " + col.name + "  to  " + gameObject.name);
         }
     }

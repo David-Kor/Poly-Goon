@@ -3,6 +3,9 @@
 /*****  플레이어의 모든 키보드 입력을 처리하는 클래스 *****/
 public class PlayerInputManager : MonoBehaviour
 {
+    //게임 오버 UI창
+    public GameObject gameOverUI;
+
     public float speed = 2.0f;
     private bool isDead;
     
@@ -57,11 +60,21 @@ public class PlayerInputManager : MonoBehaviour
     public void RightUnBlock() { r_block = false; }
 
     /* 장애물의 Deadline에 닿은 경우 호출됨 */
-    public void DeadBlock() { isDead = true; }
+    public void PlayerDeath()
+    {
+        isDead = true;
+        
+        //게임오버 UI를 활성화
+        if (gameOverUI != null)
+        {
+            gameOverUI.SetActive(true);
+        }
+    }
 
     /* 재시작 버튼(R) 입력 시 동작 */
     public void Restart()
     {
+        gameOverUI.SetActive(false);
         Obstacle.ClearObstacles();
         Reset();
     }

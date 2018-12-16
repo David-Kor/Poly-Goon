@@ -53,4 +53,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   patternList:
   - {fileID: 1936086824833126, guid: 2ce0eb9fb6923ad43ac608c8f31bda7f, type: 2}
+  - {fileID: 1256977248881350, guid: 616b7c83b5b3409488cffcc4ca377276, type: 2}
   lastObstacle: {fileID: 0}
