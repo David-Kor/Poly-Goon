@@ -1,11 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class RankSystem : MonoBehaviour
 {
-    static public int i = 0;
+    public static int i = 0;
 
     public static Text[] hexagonBestScore = new Text[10];
     public static Text[] hexagonPlayerName = new Text[10];
@@ -16,30 +14,23 @@ public class RankSystem : MonoBehaviour
     public static Text[] circleBestScore = new Text[10];
     public static Text[] circlePlayerName = new Text[10];
 
-    static GameObject Hexagon_Game;
-    static GameObject Pentagon_Game;
-    static GameObject Circle_Game;
-
-    void Awake()
+    public void Init()
     {
-        Hexagon_Game = GameObject.Find("Hexagon_Game").gameObject;
-        Pentagon_Game = GameObject.Find("Pentagon_Game").gameObject;
-        Circle_Game = GameObject.Find("Circle_Game").gameObject;
+        Transform nameText = transform.GetChild(0).GetChild(1);
+        Transform scoreText = transform.GetChild(0).GetChild(2);
 
         for (i = 0; i < 10; i++)
         {
-            
-             hexagonPlayerName[i] = GameObject.Find("Canvas/Rank/기본Text/사용자 이름/플레이어 이름 (" + (i + 1) + ")").GetComponent<Text>();
-             hexagonBestScore[i] = GameObject.Find("Canvas/Rank/기본Text/점수/점수 (" + (i + 1) + ")").GetComponent<Text>();
+             hexagonPlayerName[i] = nameText.GetChild(i).GetComponent<Text>();
+             hexagonBestScore[i] = scoreText.GetChild(i).GetComponent<Text>();
 
-             pentagonPlayerName[i] = GameObject.Find("Canvas/Rank/기본Text/사용자 이름/플레이어 이름 (" + (i + 1) + ")").GetComponent<Text>();
-             pentagonBestScore[i] = GameObject.Find("Canvas/Rank/기본Text/점수/점수 (" + (i + 1) + ")").GetComponent<Text>();
+             pentagonPlayerName[i] = nameText.GetChild(i).GetComponent<Text>();
+             pentagonBestScore[i] = scoreText.GetChild(i).GetComponent<Text>();
 
-             circlePlayerName[i] = GameObject.Find("Canvas/Rank/기본Text/사용자 이름/플레이어 이름 (" + (i + 1) + ")").GetComponent<Text>();
-             circleBestScore[i] = GameObject.Find("Canvas/Rank/기본Text/점수/점수 (" + (i + 1) + ")").GetComponent<Text>();
+             circlePlayerName[i] = nameText.GetChild(i).GetComponent<Text>();
+             circleBestScore[i] = scoreText.GetChild(i).GetComponent<Text>();
          
         }
-        LoadHexagon();
     }
     
     void Update()
@@ -98,20 +89,18 @@ public class RankSystem : MonoBehaviour
 
     static public void CheckBestScore(string n)
     {
-        if (Hexagon_Game.activeSelf == true)
+        if (ButtonManager.Hexagon_Game.activeSelf == true)
         {
             int j = 0;
             for (int i = 0; i < 10; i++)
             {
 
-                Debug.Log(hexagonPlayerName[i]);
                 if (int.Parse(n) >= int.Parse(hexagonBestScore[i].text))
                 {
                     for (j = 8; j > i; j--)
                     {
                         hexagonBestScore[i + 1].text = hexagonBestScore[i].text;
                         hexagonPlayerName[i + 1].text = hexagonPlayerName[i].text;
-                        Debug.Log(j);
                     }
                     hexagonBestScore[i].text = n;
                     hexagonPlayerName[j].text = ButtonManager.사용자이름.text;
@@ -120,20 +109,17 @@ public class RankSystem : MonoBehaviour
             }
             SaveHexagon();
         }
-        else if (Pentagon_Game.activeSelf == true)
+        else if (ButtonManager.Pentagon_Game.activeSelf == true)
         {
             int j = 0;
             for (int i = 0; i < 10; i++)
             {
-
-                Debug.Log(pentagonPlayerName[i]);
                 if (int.Parse(n) >= int.Parse(pentagonBestScore[i].text))
                 {
                     for (j = 8; j > i; j--)
                     {
                         pentagonBestScore[i + 1].text = pentagonBestScore[i].text;
                         pentagonPlayerName[i + 1].text = pentagonPlayerName[i].text;
-                        Debug.Log(j);
                     }
                     pentagonBestScore[i].text = n;
                     pentagonPlayerName[j].text = ButtonManager.사용자이름.text;
@@ -142,20 +128,17 @@ public class RankSystem : MonoBehaviour
             }
             SavePentagon();
         }
-        else if (Circle_Game.activeSelf == true)
+        else if (ButtonManager.Circle_Game.activeSelf == true)
         {
             int j = 0;
             for (int i = 0; i < 10; i++)
             {
-
-                Debug.Log(circlePlayerName[i]);
                 if (int.Parse(n) >= int.Parse(circleBestScore[i].text))
                 {
                     for (j = 8; j > i; j--)
                     {
                         circleBestScore[i + 1].text = circleBestScore[i].text;
                         circlePlayerName[i + 1].text = circlePlayerName[i].text;
-                        Debug.Log(j);
                     }
                     circleBestScore[i].text = n;
                     circlePlayerName[j].text = ButtonManager.사용자이름.text;

@@ -27,9 +27,9 @@ public class ButtonManager : MonoBehaviour
     GameObject Game_Result;
     GameObject Rank;
 
-    static public GameObject Hexagon_Game;
-    static public GameObject Pentagon_Game;
-    static public GameObject Circle_Game;
+    public static GameObject Hexagon_Game;
+    public static GameObject Pentagon_Game;
+    public static GameObject Circle_Game;
 
 
 
@@ -64,6 +64,7 @@ public class ButtonManager : MonoBehaviour
         selectPolygoon.SetActive(false);
         UI_Text.SetActive(false);
         Game_Result.SetActive(false);
+        Rank.GetComponent<RankSystem>().Init();
         Rank.SetActive(false);
 
         Hexagon_Game.SetActive(false);
@@ -170,6 +171,7 @@ public class ButtonManager : MonoBehaviour
             selectPolygoon.SetActive(false);
             Hexagon_Game.SetActive(true);
             UI_Text.SetActive(true);
+            UI_Text.GetComponentInChildren<BestScore>().Init_BScore(0);
         }
     }
     public void Click_Pentagon()
@@ -179,6 +181,7 @@ public class ButtonManager : MonoBehaviour
             selectPolygoon.SetActive(false);
             Pentagon_Game.SetActive(true);
             UI_Text.SetActive(true);
+            UI_Text.GetComponentInChildren<BestScore>().Init_BScore(1);
         }
     }
     public void Click_Circle()
@@ -188,6 +191,7 @@ public class ButtonManager : MonoBehaviour
             selectPolygoon.SetActive(false);
             Circle_Game.SetActive(true);
             UI_Text.SetActive(true);
+            UI_Text.GetComponentInChildren<BestScore>().Init_BScore(2);
         } 
     }
     public void GameOver()

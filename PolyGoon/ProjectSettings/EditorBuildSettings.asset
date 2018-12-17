@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/PolyGoon.unity
+    guid: 9b01f8110b83a244383f90ed3f93b60f
   m_configObjects: {}

@@ -1,6 +1,6 @@
 WindowsStandalone
 PlayerPath?
-C:/Users/David/Documents/공부자료/Unity/폴리군/PolyGoon.exe
+D:/컴소/폴리군/PolyGoon.exe
 SceneListBegin?
 Assets/Scenes/PolyGoon.unity
 SceneListEnd?

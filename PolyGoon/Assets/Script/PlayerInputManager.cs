@@ -68,12 +68,14 @@ public class PlayerInputManager : MonoBehaviour
         if (gameOverUI != null)
         {
             gameOverUI.SetActive(true);
+            gameOverUI.GetComponent<GameResultController>().SaveRecord();
         }
     }
 
     /* 재시작 버튼(R) 입력 시 동작 */
     public void Restart()
     {
+        gameOverUI.GetComponent<GameResultController>().SaveRecord();
         gameOverUI.SetActive(false);
         Obstacle.ClearObstacles();
         Score.score = 0;
