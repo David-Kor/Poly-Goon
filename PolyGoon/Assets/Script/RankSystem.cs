@@ -29,8 +29,8 @@ public class RankSystem : MonoBehaviour
 
              circlePlayerName[i] = nameText.GetChild(i).GetComponent<Text>();
              circleBestScore[i] = scoreText.GetChild(i).GetComponent<Text>();
-         
         }
+        transform.parent.parent.GetComponentInChildren<ButtonManager>().LoadHexagon();
     }
     
     void Update()
@@ -63,7 +63,7 @@ public class RankSystem : MonoBehaviour
         }
     }
 
-    static public void CheckBestScore(string n)
+    public void CheckBestScore(string n)
     {
         if (ButtonManager.Hexagon_Game.activeSelf == true)
         {
@@ -84,6 +84,7 @@ public class RankSystem : MonoBehaviour
                 }
             }
             SaveHexagon();
+            transform.parent.parent.GetComponentInChildren<ButtonManager>().LoadHexagon();
         }
         else if (ButtonManager.Pentagon_Game.activeSelf == true)
         {
@@ -103,6 +104,7 @@ public class RankSystem : MonoBehaviour
                 }
             }
             SavePentagon();
+            transform.parent.parent.GetComponentInChildren<ButtonManager>().LoadHexagon();
         }
         else if (ButtonManager.Circle_Game.activeSelf == true)
         {
@@ -122,6 +124,7 @@ public class RankSystem : MonoBehaviour
                 }
             }
             SaveCircle();
+            transform.parent.parent.GetComponentInChildren<ButtonManager>().LoadHexagon();
         }
     }
 

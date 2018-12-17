@@ -39,7 +39,7 @@ public class ButtonManager : MonoBehaviour
         Rank = transform.Find("Canvas/Rank").gameObject;
 
         이름입력 = transform.Find("Canvas/Change_name/InputField").GetComponent<InputField>();
-        사용자이름 = transform.GetChild(0).GetChild(3).GetChild(0).GetComponent<Text>();
+        사용자이름 = transform.GetChild(0).GetChild(1).GetChild(3).GetChild(1).GetComponent<Text>();
         입력받는text = transform.Find("Canvas/Check_Change/Text").GetComponent<Text>();
 
         Hexagon_Game = GameObject.Find("Hexagon_Game").gameObject;
@@ -124,6 +124,7 @@ public class ButtonManager : MonoBehaviour
         Change_name.SetActive(false);
         사용자이름.text = 이름입력.text;
         PlayerPrefs.SetString("Playername", 사용자이름.text);
+        사용자이름.text = PlayerPrefs.GetString("Playername", 사용자이름.text);
     }                //사용자 이름 변경 확정
     public void no()
     {

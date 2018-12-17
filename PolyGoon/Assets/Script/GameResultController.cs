@@ -80,6 +80,6 @@ public class GameResultController : MonoBehaviour {
         init();
         Game_Result_Time.text = UI_Time.text;
         Game_Result_Score.text = UI_Score.text;
-        RankSystem.CheckBestScore(Game_Result_Score.text);
+        transform.parent.GetChild(7).GetComponentInChildren<RankSystem>().CheckBestScore(Game_Result_Score.text);
 	}
 }
