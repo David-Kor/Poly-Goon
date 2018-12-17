@@ -8,6 +8,7 @@ public class BestScore: MonoBehaviour {
     GameObject Hexagon_Game;
     GameObject Pentagon_Game;
     GameObject Circle_Game;
+    Transform canvas;
 
     private int bestScore = 0;
     private bool isInit = false;
@@ -16,6 +17,7 @@ public class BestScore: MonoBehaviour {
 
     public void Init_BScore(short shape)
     {
+        canvas = gameObject.transform.parent.parent;
         switch (shape)
         {
             case 0:
@@ -50,7 +52,6 @@ public class BestScore: MonoBehaviour {
     {
         if(Hexagon_Game != null)
         {
-            RankSystem.LoadHexagon();
             bestScore = int.Parse(RankSystem.hexagonBestScore[0].text);
 
             if (int.Parse(RankSystem.hexagonBestScore[0].text) > Score.score)

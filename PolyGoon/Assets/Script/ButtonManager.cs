@@ -3,19 +3,7 @@ using UnityEngine.UI;
 
 public class ButtonManager : MonoBehaviour
 {
-    RankSystem rankSystem = new RankSystem();
 
-    private bool pOption_flag;
-    private bool pScreen_flag;
-    private bool Change_name_flag;
-    private bool Check_Change_flag;
-    private bool errorChange_flag;
-    static public bool selectPolygoon_flag;
-    static public bool Hexagon_flag;
-    static public bool Pentagon_flag;
-    static public bool Circle_flag;
-    static public bool Game_Result_flag;
-    private bool UI_Text_flag;
 
     GameObject pOption;          //옵션 화면 판넬
     GameObject pScreen;          //초기 화면 판넬
@@ -37,7 +25,7 @@ public class ButtonManager : MonoBehaviour
 
     static public Text 사용자이름;         //사용자 이름을 받아올 변수
     Text 입력받는text;       //InputField의 값을 저장할 변수
-
+    
     void Awake ()
     {
         pScreen = transform.Find("Canvas/pScreen").gameObject;
@@ -51,12 +39,13 @@ public class ButtonManager : MonoBehaviour
         Rank = transform.Find("Canvas/Rank").gameObject;
 
         이름입력 = transform.Find("Canvas/Change_name/InputField").GetComponent<InputField>();
-        사용자이름 = transform.Find("Canvas/pOption/사용자이름").GetComponent<Text>();
+        사용자이름 = transform.GetChild(0).GetChild(3).GetChild(0).GetComponent<Text>();
         입력받는text = transform.Find("Canvas/Check_Change/Text").GetComponent<Text>();
 
         Hexagon_Game = GameObject.Find("Hexagon_Game").gameObject;
         Pentagon_Game = GameObject.Find("Pentagon_Game").gameObject;
         Circle_Game = GameObject.Find("Circle_Game").gameObject;
+
         pScreen.SetActive(true);
         pOption.SetActive(false);
         Change_name.SetActive(false);
@@ -73,18 +62,11 @@ public class ButtonManager : MonoBehaviour
 
         //레지스트리에 저장된 사용자 이름 호출
         사용자이름.text = PlayerPrefs.GetString("Playername", 사용자이름.text);
-
-        Debug.Log(Hexagon_Game.name);
+        
     }
-	// Update is called once per frame
-	void Update ()
-    {
-                
-    }
-
     public void GameStart()
     {
-        if (selectPolygoon.active == false)
+        if (selectPolygoon.activeSelf == false)
         {
             selectPolygoon.SetActive(true);
             pScreen.SetActive(false);
@@ -92,7 +74,7 @@ public class ButtonManager : MonoBehaviour
     }          //게임 시작
     public void Option()
     {
-        if (pOption.active == false)
+        if (pOption.activeSelf == false)
         {
             pOption.SetActive(true);
             pScreen.SetActive(false);
@@ -104,7 +86,7 @@ public class ButtonManager : MonoBehaviour
     }               //프로그램 종료 
     public void Sumbit()
     {
-        if (pOption.active == true)
+        if (pOption.activeSelf == true)
         {
             pOption.SetActive(false);
             pScreen.SetActive(true);
@@ -112,7 +94,7 @@ public class ButtonManager : MonoBehaviour
     }             //옵션창 끄기(확인)
     public void Change_Name()
     {
-        if(Change_name_flag == false)
+        if(Change_name.activeSelf == false)
         {
             Change_name.SetActive(true);
         }
@@ -125,7 +107,7 @@ public class ButtonManager : MonoBehaviour
         }
         else
         {
-            if (Check_Change.active == false)
+            if (Check_Change.activeSelf == false)
             {
                 Check_Change.SetActive(true);
                 입력받는text.text = 이름입력.text;
@@ -135,7 +117,7 @@ public class ButtonManager : MonoBehaviour
                 Check_Change.SetActive(false);
             }
         }
-    }       //해당 이름으로 변경할 것인지 확인
+    }      //해당 이름으로 변경할 것인지 확인
     public void yes()
     {
         Check_Change.SetActive(false);
@@ -148,17 +130,17 @@ public class ButtonManager : MonoBehaviour
         Check_Change.SetActive(false);
         Change_name.SetActive(false);
     }                 //사용자 이름 변경 취소
-    public void error_Sumbit()
+    public void error_Sumbit()          //이름 변경 실패시 작동
     {
-        if (Error_Change.active == true)
+        if (Error_Change.activeSelf == true)
             Error_Change.active = !Error_Change.active;
         Error_Change.SetActive(Error_Change.active);
-    }
+    }           
     public void Active_Rank()
     {
         Rank.SetActive(true);
         pOption.SetActive(false);
-    }
+    }          
     public void Unactive_Rank()
     {
         Rank.SetActive(false);
@@ -194,8 +176,28 @@ public class ButtonManager : MonoBehaviour
             UI_Text.GetComponentInChildren<BestScore>().Init_BScore(2);
         } 
     }
-    public void GameOver()
+    public void LoadHexagon()
     {
-        Game_Result.SetActive(true);
+        for (int i = 0; i < 10; i++)
+        {
+            RankSystem.hexagonPlayerName[i].text = PlayerPrefs.GetString("Hexagon Best Player " + i, RankSystem.hexagonPlayerName[i].text);
+            RankSystem.hexagonBestScore[i].text = PlayerPrefs.GetString("Hexagon Best Score " + i, RankSystem.hexagonBestScore[i].text);
+        }
+    }
+    public void LoadPentagon()
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            RankSystem.pentagonPlayerName[i].text = PlayerPrefs.GetString("Pentagon Best Player " + i, RankSystem.pentagonPlayerName[i].text);
+            RankSystem.pentagonBestScore[i].text = PlayerPrefs.GetString("Pentagon Best Score " + i, RankSystem.pentagonBestScore[i].text);
+        }
+    }
+    public void LoadCircle()
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            RankSystem.circlePlayerName[i].text = PlayerPrefs.GetString("Circle Best Player " + i, RankSystem.circlePlayerName[i].text);
+            RankSystem.circleBestScore[i].text = PlayerPrefs.GetString("Circle Best Score " + i, RankSystem.circleBestScore[i].text);
+        }
     }
 }

@@ -37,31 +37,7 @@ public class RankSystem : MonoBehaviour
     {
 
     }
-    static public void LoadHexagon()
-    {
-        for (int i = 0; i < 10; i++)
-        {
-            hexagonPlayerName[i].text = PlayerPrefs.GetString("Hexagon Best Player " + i, hexagonPlayerName[i].text);
-            hexagonBestScore[i].text = PlayerPrefs.GetString("Hexagon Best Score " + i, hexagonBestScore[i].text);
-        }
-    }
-    static public void LoadPentagon()
-    {
-        for (int i = 0; i < 10; i++)
-        {
-            pentagonPlayerName[i].text = PlayerPrefs.GetString("Pentagon Best Player " + i, pentagonPlayerName[i].text);
-            pentagonBestScore[i].text = PlayerPrefs.GetString("Pentagon Best Score " + i, pentagonBestScore[i].text);
-        }
-    }
-    static public void LoadCircle()
-    {
-        for (int i = 0; i < 10; i++)
-        {
-            circlePlayerName[i].text = PlayerPrefs.GetString("Circle Best Player " + i, circlePlayerName[i].text);
-            circleBestScore[i].text = PlayerPrefs.GetString("Circle Best Score " + i, circleBestScore[i].text);
-        }
-    }
-
+    
     static void SaveHexagon()
     {
         for (int i = 0; i < 10; i++)
