@@ -16,7 +16,10 @@ public class ObstaclePattern : MonoBehaviour
     public string[] patternList;
     //장애물 패턴들의 큐
     private Queue<GameObject> q_obstacle;
+    //패턴 내의 아이템
+    private GameObject itemPrefab;
 
+    /* 패턴을 설정대로 초기화 */
     public void InitPattern()
     {
         //장애물 클래스
@@ -24,7 +27,7 @@ public class ObstaclePattern : MonoBehaviour
         
         //새로운 큐 생성
         q_obstacle = new Queue<GameObject>();
-        
+
         //패턴 뒤집기가 true면 50%확률로 패턴을 뒤집음
         //마지막 3줄의 패턴은 변하지 않음 (패턴간의 간격을 위해 고정된 여백)
         if (reverse_pattern)
@@ -41,10 +44,11 @@ public class ObstaclePattern : MonoBehaviour
                 }
             }
         }
-
+        Debug.Log("===========================");
         //패턴 리스트로부터 순서대로 패턴을 받고 생성
         for (int i = 0; i < patternList.Length; i++)
         {
+            Debug.Log(patternList[i]);
             obst = Instantiate(origin_obstacle).GetComponent<Obstacle>();
             //각 장애물의 localScale이 1씩 차이나게 함
             obst.transform.localScale += Vector3.one * i;
@@ -55,7 +59,7 @@ public class ObstaclePattern : MonoBehaviour
             q_obstacle.Enqueue(obst.gameObject);
 
             //string으로 된 패턴을 파싱하여 지정된대로 장애물의 형태를 만듬
-            //[ F : 빈칸 / T : 벽 ]
+            //[ F : 빈칸 / T : 벽  / I : 빈칸 + 아이템]
             //11시 방향부터 시계 반대방향의 순서를 가짐
             for (int j = 0; j < edge_count; j++)
             {
@@ -73,6 +77,16 @@ public class ObstaclePattern : MonoBehaviour
                 }
                 else if (patternList[i][j] == 'F')
                 {
+                    obst.SetObstacleActive(j, false);
+                }
+                else if (patternList[i][j] == 'I')
+                {
+                    if (itemPrefab != null)
+                    {
+                        GameObject game = GameObject.FindGameObjectWithTag("GameBoard");
+                        Instantiate(itemPrefab, game.transform).GetComponent<Item>().Init(speed, j,
+                            game.transform.GetChild(3).GetChild(j).position);
+                    }
                     obst.SetObstacleActive(j, false);
                 }
             }
@@ -100,6 +114,27 @@ public class ObstaclePattern : MonoBehaviour
     public int GetCountQueue()
     {
         return q_obstacle.Count;
+    }
+
+    /* 패턴 안에 랜덤하게 아이템을 생성 */
+    public void CreateRandomItem(GameObject _item)
+    {
+        /*
+        if (_item == null) { return; }
+
+        itemPrefab = _item;
+        //랜덤 장애물 라인 선택
+        int randLine = Random.Range(0, patternList.Length);
+        string pattern = patternList[0];
+
+        //패턴 문자열에서 'F' 중 하나를 골라 I로 변경
+        int rand = Random.Range(0, pattern.Length);
+        while (pattern[rand] != 'F')
+        {
+            rand = Random.Range(0, pattern.Length);
+        }
+        patternList[randLine] = pattern.Substring(0, rand) + "I" + pattern.Substring(rand + 1);
+        */
     }
 
 }

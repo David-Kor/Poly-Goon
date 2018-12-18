@@ -157,6 +157,14 @@ Prefab:
       propertyPath: gameOverUI
       value: 
       objectReference: {fileID: 1613253562}
+    - target: {fileID: 1376729600865318, guid: 45483682f4480ab40aa7ad3354dcbd81, type: 2}
+      propertyPath: m_TagString
+      value: GameBoard
+      objectReference: {fileID: 0}
+    - target: {fileID: 1376729600865318, guid: 45483682f4480ab40aa7ad3354dcbd81, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 45483682f4480ab40aa7ad3354dcbd81, type: 2}
   m_IsPrefabAsset: 0
@@ -204,6 +212,14 @@ Prefab:
       propertyPath: gameOverUI
       value: 
       objectReference: {fileID: 1613253562}
+    - target: {fileID: 1839813610653710, guid: 213244975ae9a15468813ecd10fed55b, type: 2}
+      propertyPath: m_TagString
+      value: GameBoard
+      objectReference: {fileID: 0}
+    - target: {fileID: 1839813610653710, guid: 213244975ae9a15468813ecd10fed55b, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 213244975ae9a15468813ecd10fed55b, type: 2}
   m_IsPrefabAsset: 0
@@ -256,6 +272,14 @@ Prefab:
       propertyPath: gameOverUI
       value: 
       objectReference: {fileID: 1613253562}
+    - target: {fileID: 1889330091672260, guid: f6c4da56f0186a646aa7bab21afc79c8, type: 2}
+      propertyPath: m_TagString
+      value: GameBoard
+      objectReference: {fileID: 0}
+    - target: {fileID: 1889330091672260, guid: f6c4da56f0186a646aa7bab21afc79c8, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6c4da56f0186a646aa7bab21afc79c8, type: 2}
   m_IsPrefabAsset: 0
@@ -297,6 +321,20 @@ Prefab:
     - target: {fileID: 4362361366132804, guid: d6002398e4a6fa441b88fb85f7b93bfe, type: 2}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 82585030849176160, guid: d6002398e4a6fa441b88fb85f7b93bfe,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 4233f71f7f7ea1f429aa549d2d0a178a, type: 3}
+    - target: {fileID: 82916969898468280, guid: d6002398e4a6fa441b88fb85f7b93bfe,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: ea7229e5b8b275848aa4c89bf3e2cea8, type: 3}
+    - target: {fileID: 1828650105122572, guid: d6002398e4a6fa441b88fb85f7b93bfe, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6002398e4a6fa441b88fb85f7b93bfe, type: 2}

@@ -7,6 +7,8 @@ public class Obstacle : MonoBehaviour
     public float speed = 2.0f;
     //장애물 활성화 여부. true면 움직이기 시작함
     public bool isActive = false;
+    //각 벽들의 로컬위치
+    public Vector2[] wallPosition;
 
     void Update()
     {
@@ -33,6 +35,11 @@ public class Obstacle : MonoBehaviour
     public void SetObstacleActive(int index, bool _active)
     {
         transform.GetChild(index).gameObject.SetActive(_active);
+    }
+
+    public GameObject GetObstacleWall(int index)
+    {
+        return transform.GetChild(index).gameObject;
     }
 
     /* 현재 생성된 모든 장애물(Obstacle) 태그의 오브젝트들 제거 (ObstaclePattern 포함) */

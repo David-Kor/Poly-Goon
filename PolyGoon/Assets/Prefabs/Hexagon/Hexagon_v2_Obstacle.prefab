@@ -383,7 +383,7 @@ Transform:
   m_GameObject: {fileID: 1858704216911320}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 10, z: 1}
+  m_LocalScale: {x: 15, y: 15, z: 1}
   m_Children:
   - {fileID: 4135552600067720}
   - {fileID: 4101235680375934}
@@ -707,7 +707,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  active: 0
+  isActive: 0
+  wallPosition:
+  - {x: -0.4813334, y: 0.8973334}
+  - {x: -1.01778, y: 0.03181979}
+  - {x: -0.5364467, y: -0.8655137}
+  - {x: 0.4813334, y: -0.8973334}
+  - {x: 1.01778, y: -0.03181979}
+  - {x: 0.5364469, y: 0.8655137}
 --- !u!212 &212113129014636694
 SpriteRenderer:
   m_ObjectHideFlags: 1

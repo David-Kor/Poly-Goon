@@ -54,7 +54,7 @@ MonoBehaviour:
   origin_obstacle: {fileID: 1858704216911320, guid: 8bb7fd05e56dfb64b8f04535216feef2,
     type: 2}
   edge_count: 6
-  speed: 5
+  speed: 6
   reverse_pattern: 1
   patternList:
   - FFFTTT
