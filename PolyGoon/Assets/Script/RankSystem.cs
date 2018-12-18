@@ -104,7 +104,7 @@ public class RankSystem : MonoBehaviour
                 }
             }
             SavePentagon();
-            transform.parent.parent.GetComponentInChildren<ButtonManager>().LoadHexagon();
+            transform.parent.parent.GetComponentInChildren<ButtonManager>().LoadPentagon();
         }
         else if (ButtonManager.Circle_Game.activeSelf == true)
         {
@@ -124,7 +124,7 @@ public class RankSystem : MonoBehaviour
                 }
             }
             SaveCircle();
-            transform.parent.parent.GetComponentInChildren<ButtonManager>().LoadHexagon();
+            transform.parent.parent.GetComponentInChildren<ButtonManager>().LoadCircle();
         }
     }
 

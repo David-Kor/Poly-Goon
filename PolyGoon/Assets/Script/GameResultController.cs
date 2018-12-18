@@ -71,6 +71,8 @@ public class GameResultController : MonoBehaviour {
             Obstacle.ClearObstacles();
             Score.score = 0;
             doSave = false;
+
+            gameObject.transform.parent.parent.GetComponentInChildren<Music>().ControlMusic(0);
         }
     }
 

@@ -137,17 +137,17 @@ public class ButtonManager : MonoBehaviour
             Error_Change.active = !Error_Change.active;
         Error_Change.SetActive(Error_Change.active);
     }           
-    public void Active_Rank()
+    public void Active_Rank()           //랭킹창 활성화
     {
         Rank.SetActive(true);
         pOption.SetActive(false);
     }          
-    public void Unactive_Rank()
+    public void Unactive_Rank()         //랭킹창 비활성화
     {
         Rank.SetActive(false);
         pScreen.SetActive(true);
     }
-    public void Click_Hexagon()
+    public void Click_Hexagon()         //헥사곤 게임 시작
     {
         if (selectPolygoon.activeSelf == true)
         {
@@ -155,9 +155,10 @@ public class ButtonManager : MonoBehaviour
             Hexagon_Game.SetActive(true);
             UI_Text.SetActive(true);
             UI_Text.GetComponentInChildren<BestScore>().Init_BScore(0);
+            gameObject.GetComponentInChildren<Music>().ControlMusic(1);
         }
     }
-    public void Click_Pentagon()
+    public void Click_Pentagon()        //펜타곤 게임 시작
     {
         if (selectPolygoon.activeSelf == true)
         {
@@ -165,9 +166,10 @@ public class ButtonManager : MonoBehaviour
             Pentagon_Game.SetActive(true);
             UI_Text.SetActive(true);
             UI_Text.GetComponentInChildren<BestScore>().Init_BScore(1);
+            gameObject.GetComponentInChildren<Music>().ControlMusic(2);
         }
     }
-    public void Click_Circle()
+    public void Click_Circle()          //서클 게임 시작
     {
         if (selectPolygoon.activeSelf == true)
         {
@@ -175,9 +177,10 @@ public class ButtonManager : MonoBehaviour
             Circle_Game.SetActive(true);
             UI_Text.SetActive(true);
             UI_Text.GetComponentInChildren<BestScore>().Init_BScore(2);
+            gameObject.GetComponentInChildren<Music>().ControlMusic(3);
         } 
     }
-    public void LoadHexagon()
+    public void LoadHexagon()           //헥사곤 랭킹 불러오기
     {
         for (int i = 0; i < 10; i++)
         {
@@ -185,7 +188,7 @@ public class ButtonManager : MonoBehaviour
             RankSystem.hexagonBestScore[i].text = PlayerPrefs.GetString("Hexagon Best Score " + i, RankSystem.hexagonBestScore[i].text);
         }
     }
-    public void LoadPentagon()
+    public void LoadPentagon()          //펜타곤 랭킹 불러오기
     {
         for (int i = 0; i < 10; i++)
         {
@@ -193,7 +196,7 @@ public class ButtonManager : MonoBehaviour
             RankSystem.pentagonBestScore[i].text = PlayerPrefs.GetString("Pentagon Best Score " + i, RankSystem.pentagonBestScore[i].text);
         }
     }
-    public void LoadCircle()
+    public void LoadCircle()            //원 랭킹 불러오기
     {
         for (int i = 0; i < 10; i++)
         {
