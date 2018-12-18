@@ -10,10 +10,9 @@ public class PlayerBody : MonoBehaviour
         {
             GetComponentInParent<PlayerInputManager>().PlayerDeath();
         }
-        //아이템에 닿은 경우
         if (col.CompareTag("Item"))
         {
-            GetComponent<ItemManager>();
+            col.GetComponent<Item>().Scoring();
         }
     }
 }

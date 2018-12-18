@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4683874501778482}
   - component: {fileID: 212394580806523978}
   - component: {fileID: 58851098296841606}
-  - component: {fileID: 114961383984126992}
+  - component: {fileID: 114569942072901442}
   m_Layer: 0
   m_Name: ScoringItem_500
   m_TagString: Item
@@ -36,7 +36,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1721060371472546}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -15, y: 0, z: 0}
   m_LocalScale: {x: 0.35, y: 0.35, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -51,13 +51,13 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.085746765, y: 0}
   serializedVersion: 2
   m_Radius: 0.9903259
---- !u!114 &114961383984126992
+--- !u!114 &114569942072901442
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -65,11 +65,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1721060371472546}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c59e63cf84a452c49830feb515a981a0, type: 3}
+  m_Script: {fileID: 11500000, guid: af96da237bbfc1a4883de9029ebcfcfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   score: 500
-  percentage: 5
+  speed: 5
+  percentage: 10
 --- !u!212 &212394580806523978
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -102,9 +103,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -679721565
-  m_SortingLayer: 2
-  m_SortingOrder: 5
+  m_SortingLayerID: -201110839
+  m_SortingLayer: 4
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 26f3bfd85fc69ae49939db8174b4a8f4, type: 3}
   m_Color: {r: 0.79773253, g: 0.8113208, b: 0.095674604, a: 1}
   m_FlipX: 0

@@ -5,13 +5,24 @@ public class ItemManager : MonoBehaviour
 {
     //전체 아이템 리스트
     public GameObject[] itemList;
-    
+    //아이템 스폰장소 회전 속도
+    public float speed;
+    public float minDelay;
+    public float maxDelay;
+
     //각 아이템들의 확률누적값 (가중치)
     private float[] percentages;
 
-    /* 초기화 */
-    public void Init()
+    private GameObject spawner;
+    private float timer = 0;
+    private float spawnDelay = 3.0f;
+
+
+    void Start()
     {
+        spawner = transform.GetChild(0).gameObject;
+        spawnDelay = Random.Range(minDelay, maxDelay);
+
         percentages = new float[itemList.Length];
         float sum = 0.0f;
 
@@ -22,6 +33,19 @@ public class ItemManager : MonoBehaviour
             sum += itemList[i].GetComponent<Item>().percentage;
             percentages[i] = sum;
         }
+    }
+
+
+    void Update()
+    {
+        timer += Time.deltaTime;
+        if (timer >= spawnDelay)
+        {
+            Instantiate(SelectRandomItem()).transform.position = spawner.transform.position;
+            timer = 0.0f;
+            spawnDelay = Random.Range(minDelay, maxDelay);
+        }
+        transform.Rotate(0f, 0f, speed * -1);
     }
 
 

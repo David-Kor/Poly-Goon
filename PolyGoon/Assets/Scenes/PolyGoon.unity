@@ -113,7 +113,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &220335724
+--- !u!1001 &920334519
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -157,18 +157,14 @@ Prefab:
       propertyPath: gameOverUI
       value: 
       objectReference: {fileID: 1613253562}
-    - target: {fileID: 1376729600865318, guid: 45483682f4480ab40aa7ad3354dcbd81, type: 2}
+    - target: {fileID: 1295076479614554, guid: 45483682f4480ab40aa7ad3354dcbd81, type: 2}
       propertyPath: m_TagString
       value: GameBoard
-      objectReference: {fileID: 0}
-    - target: {fileID: 1376729600865318, guid: 45483682f4480ab40aa7ad3354dcbd81, type: 2}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 45483682f4480ab40aa7ad3354dcbd81, type: 2}
   m_IsPrefabAsset: 0
---- !u!1001 &1220851150
+--- !u!1001 &1572501627
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -212,13 +208,9 @@ Prefab:
       propertyPath: gameOverUI
       value: 
       objectReference: {fileID: 1613253562}
-    - target: {fileID: 1839813610653710, guid: 213244975ae9a15468813ecd10fed55b, type: 2}
+    - target: {fileID: 1808881287180592, guid: 213244975ae9a15468813ecd10fed55b, type: 2}
       propertyPath: m_TagString
       value: GameBoard
-      objectReference: {fileID: 0}
-    - target: {fileID: 1839813610653710, guid: 213244975ae9a15468813ecd10fed55b, type: 2}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 213244975ae9a15468813ecd10fed55b, type: 2}
@@ -228,7 +220,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1583851268846492, guid: d6002398e4a6fa441b88fb85f7b93bfe,
     type: 2}
   m_PrefabInternal: {fileID: 2041385254}
---- !u!1001 &1706286659
+--- !u!1001 &1767608289
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -272,13 +264,9 @@ Prefab:
       propertyPath: gameOverUI
       value: 
       objectReference: {fileID: 1613253562}
-    - target: {fileID: 1889330091672260, guid: f6c4da56f0186a646aa7bab21afc79c8, type: 2}
+    - target: {fileID: 1431052828281364, guid: f6c4da56f0186a646aa7bab21afc79c8, type: 2}
       propertyPath: m_TagString
       value: GameBoard
-      objectReference: {fileID: 0}
-    - target: {fileID: 1889330091672260, guid: f6c4da56f0186a646aa7bab21afc79c8, type: 2}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6c4da56f0186a646aa7bab21afc79c8, type: 2}
@@ -335,6 +323,11 @@ Prefab:
     - target: {fileID: 1828650105122572, guid: d6002398e4a6fa441b88fb85f7b93bfe, type: 2}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 20061355774115154, guid: d6002398e4a6fa441b88fb85f7b93bfe,
+        type: 2}
+      propertyPath: orthographic size
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6002398e4a6fa441b88fb85f7b93bfe, type: 2}

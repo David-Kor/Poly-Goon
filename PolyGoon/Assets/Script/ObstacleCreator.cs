@@ -5,8 +5,6 @@ public class ObstacleCreator : MonoBehaviour
 {
     //전체 패턴 큐(prefab) 리스트
     public GameObject[] patternList;
-    //아이템 관리 오브젝트 프리팹
-    public GameObject itemManagerPrefab;
 
     //현재 패턴 큐
     private ObstaclePattern pattern;
@@ -16,16 +14,12 @@ public class ObstacleCreator : MonoBehaviour
     private bool doCreatPattern;
     //패턴 큐 리스트에서 랜덤으로 고른 패턴 큐의 인덱스
     private int index;
-    //아이템 매니저 클래스
-    private ItemManager itemManager;
 
     void Start()
     {
         lastObstacle = null;
         doCreatPattern = true;
         pattern = null;
-        itemManager = itemManagerPrefab.GetComponent<ItemManager>();
-        itemManager.Init();
     }
 
     void Update()
@@ -36,8 +30,6 @@ public class ObstacleCreator : MonoBehaviour
             doCreatPattern = false;
             index = Random.Range(0, patternList.Length);
             pattern = Instantiate(patternList[index]).GetComponent<ObstaclePattern>();
-            //랜덤으로 아이템을 선택하여 패턴 내 랜덤한 위치에 배치
-            pattern.CreateRandomItem(itemManager.SelectRandomItem());
             //패턴 큐 상태 초기화
             pattern.InitPattern();
 

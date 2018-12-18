@@ -77,7 +77,6 @@ public class PlayerInputManager : MonoBehaviour
     {
         gameOverUI.GetComponent<GameResultController>().SaveRecord();
         gameOverUI.SetActive(false);
-        Obstacle.ClearObstacles();
         Score.score = 0;
         Reset();
     }
@@ -89,5 +88,7 @@ public class PlayerInputManager : MonoBehaviour
         Time.timeScale = 1f;
         l_block = false;
         r_block = false;
+        Obstacle.ClearObstacles();
+        Item.ClearItems();
     }
 }
