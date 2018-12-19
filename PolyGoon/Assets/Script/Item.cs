@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 /*****  모든 아이템의 부모 클래스  *****/
-public class Item : MonoBehaviour
+public abstract class Item : MonoBehaviour
 {
     public int score;
     public float speed = 2.0f;
@@ -32,11 +32,7 @@ public class Item : MonoBehaviour
     }
 
     /* 해당 아이템이 가진 점수를 가산 */
-    public void Scoring()
-    {
-        Score.score += score;
-        Destroy(gameObject);
-    }
+    public abstract void ItemGet();
 
     /* 생성된 모든 아이템 제거 */
     public static void ClearItems()

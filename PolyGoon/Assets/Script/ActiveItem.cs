@@ -1,7 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class ActiveItem : Item
+﻿
+public abstract class ActiveItem : Item
 {
+    public override void ItemGet()
+    {
+        Score.score += score;
+        ItemActive();
+        Destroy(gameObject);
+    }
+    public abstract void ItemActive();
 }

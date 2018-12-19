@@ -84,6 +84,7 @@ MonoBehaviour:
   - {fileID: 1721060371472546, guid: 49c17645276fabf4eb4b7cb4650ac7b6, type: 2}
   - {fileID: 1721060371472546, guid: f37cc62961ecb8a4ababaafe126424d7, type: 2}
   - {fileID: 1721060371472546, guid: 9ec0a61e6186d4843a52fa2fd9ec10c9, type: 2}
+  - {fileID: 1475632854672328, guid: 7d8389d7c0d5a23479488ee4fead14f1, type: 2}
   speed: 4
-  minDelay: 0
-  maxDelay: 0
+  minDelay: 3
+  maxDelay: 10

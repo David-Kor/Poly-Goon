@@ -8,6 +8,7 @@ TagManager:
   - DeathLine
   - Item
   - GameBoard
+  - Bullet
   layers:
   - Default
   - TransparentFX
@@ -53,6 +54,9 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 1947739159
+    locked: 0
+  - name: Effect
+    uniqueID: 650963293
     locked: 0
   - name: Item
     uniqueID: 4093856457

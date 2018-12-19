@@ -13,12 +13,24 @@ public class PlayerInputManager : MonoBehaviour
     private bool l_block;
     private bool r_block;
 
+    //쉴드 아이템 효과를 위한 변수들
+    private bool isInvincible;
+    private float invincibleTime;
+    private float timer;
+
+    //슈터 아이템 효과를 위한 변수들
+    public GameObject bullet;
+    private bool isShooterMount;
+
     void Start()
     {
         l_block = false;
         r_block = false;
         isDead = false;
+        isInvincible = false;
         Time.timeScale = 1f;
+        invincibleTime = 0f;
+        timer = 0f;
     }
 
     void Update()
@@ -41,6 +53,25 @@ public class PlayerInputManager : MonoBehaviour
         if (Input.GetKey("right") && !r_block)
         {
             transform.Rotate(0f, 0f, speed * -1);
+        }
+
+        //무적이 활성화된 경우
+        if (isInvincible)
+        {
+            timer += Time.deltaTime;
+            //지속시간이 끝난 경우
+            if (timer >= invincibleTime) { NoInvincibility(); }
+        }
+
+        //슈터가 장착된 경우
+        if (isShooterMount)
+        {
+            if (Input.GetKey(KeyCode.Space))
+            {
+
+                Instantiate(bullet).GetComponent<Bullet>().ShootBullet(transform.GetChild(0).GetChild(1).position ,transform.up);
+                ShooterRelease();
+            }
         }
     }
 
@@ -90,5 +121,39 @@ public class PlayerInputManager : MonoBehaviour
         r_block = false;
         Obstacle.ClearObstacles();
         Item.ClearItems();
+        NoInvincibility();
+        ShooterRelease();
+    }
+
+
+    /* 무적 상태 발동 */
+    public void Invincibility(float _time)
+    {
+        invincibleTime = _time;
+        isInvincible = true;
+        GetComponentInChildren<PlayerBody>().isInvincible = true;
+        transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
+        timer = 0f;
+    }
+
+    public void NoInvincibility()
+    {
+        transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
+        GetComponentInChildren<PlayerBody>().isInvincible = false;
+        invincibleTime = 0f;
+        isInvincible = false;
+        timer = 0f;
+    }
+
+    public void ShooterMount()
+    {
+        transform.GetChild(0).GetChild(1).gameObject.SetActive(true);
+        isShooterMount = true;
+    }
+
+    public void ShooterRelease()
+    {
+        transform.GetChild(0).GetChild(1).gameObject.SetActive(false);
+        isShooterMount = false;
     }
 }

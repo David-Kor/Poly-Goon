@@ -157,9 +157,10 @@ Prefab:
       propertyPath: gameOverUI
       value: 
       objectReference: {fileID: 1613253562}
-    - target: {fileID: 1295076479614554, guid: 45483682f4480ab40aa7ad3354dcbd81, type: 2}
-      propertyPath: m_TagString
-      value: GameBoard
+    - target: {fileID: 114758840454711840, guid: 45483682f4480ab40aa7ad3354dcbd81,
+        type: 2}
+      propertyPath: minDelay
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 45483682f4480ab40aa7ad3354dcbd81, type: 2}
@@ -208,9 +209,10 @@ Prefab:
       propertyPath: gameOverUI
       value: 
       objectReference: {fileID: 1613253562}
-    - target: {fileID: 1808881287180592, guid: 213244975ae9a15468813ecd10fed55b, type: 2}
-      propertyPath: m_TagString
-      value: GameBoard
+    - target: {fileID: 114317458936067386, guid: 213244975ae9a15468813ecd10fed55b,
+        type: 2}
+      propertyPath: minDelay
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 213244975ae9a15468813ecd10fed55b, type: 2}
@@ -264,9 +266,10 @@ Prefab:
       propertyPath: gameOverUI
       value: 
       objectReference: {fileID: 1613253562}
-    - target: {fileID: 1431052828281364, guid: f6c4da56f0186a646aa7bab21afc79c8, type: 2}
-      propertyPath: m_TagString
-      value: GameBoard
+    - target: {fileID: 114320365861076978, guid: f6c4da56f0186a646aa7bab21afc79c8,
+        type: 2}
+      propertyPath: minDelay
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6c4da56f0186a646aa7bab21afc79c8, type: 2}
@@ -328,6 +331,15 @@ Prefab:
         type: 2}
       propertyPath: orthographic size
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1974765276986478, guid: d6002398e4a6fa441b88fb85f7b93bfe, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224304023254112940, guid: d6002398e4a6fa441b88fb85f7b93bfe,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 190.21002
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6002398e4a6fa441b88fb85f7b93bfe, type: 2}

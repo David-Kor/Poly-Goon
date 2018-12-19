@@ -56,6 +56,7 @@
      <Compile Include="Assets\Script\ActiveItem.cs" />
      <Compile Include="Assets\Script\BestScore.cs" />
      <Compile Include="Assets\Script\BlockRotate.cs" />
+     <Compile Include="Assets\Script\Bullet.cs" />
      <Compile Include="Assets\Script\ButtonManager.cs" />
      <Compile Include="Assets\Script\GameResultController.cs" />
      <Compile Include="Assets\Script\Item.cs" />
@@ -71,6 +72,8 @@
      <Compile Include="Assets\Script\RankSystem.cs" />
      <Compile Include="Assets\Script\Score.cs" />
      <Compile Include="Assets\Script\ScoringItem.cs" />
+     <Compile Include="Assets\Script\Shield.cs" />
+     <Compile Include="Assets\Script\Shooter.cs" />
      <Compile Include="Assets\Script\Timer.cs" />
  <Reference Include="UnityEditor.StandardEvents">
  <HintPath>C:/Users/David/Documents/공부자료/Unity/Polygoon/PolyGoon/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>

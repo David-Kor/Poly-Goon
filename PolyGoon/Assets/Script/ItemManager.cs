@@ -45,7 +45,10 @@ public class ItemManager : MonoBehaviour
             timer = 0.0f;
             spawnDelay = Random.Range(minDelay, maxDelay);
         }
-        transform.Rotate(0f, 0f, speed * -1);
+        if (Time.timeScale != 0)
+        {
+            transform.Rotate(0f, 0f, speed * -1);
+        }
     }
 
 
