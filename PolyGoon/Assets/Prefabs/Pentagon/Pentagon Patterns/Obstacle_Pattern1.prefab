@@ -57,19 +57,19 @@ MonoBehaviour:
   speed: 8
   reverse_pattern: 1
   patternList:
-  - TFFFFF
-  - FFFFFF
-  - FFFFFT
-  - FFFFFF
-  - FFFFTF
-  - FFFFFF
-  - FFFTFF
-  - FFFFFF
-  - FFTFFF
-  - FFFFFF
-  - FTFFFF
-  - FFFFFF
-  - TFFFFF
+  - TFFFF
+  - FFFFF
+  - FFFFT
+  - FFFFF
+  - FFFTF
+  - FFFFF
+  - FFTFF
+  - FFFFF
+  - FTFFF
+  - FFFFF
+  - TFFFF
+  - FFFFF
+  - FFFFT
   - FFFFFF
   - FFFFFF
   - FFFFFF

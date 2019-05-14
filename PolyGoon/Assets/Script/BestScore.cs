@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BestScore: MonoBehaviour {
+public class BestScore : MonoBehaviour
+{
 
     GameObject Hexagon_Game;
     GameObject Pentagon_Game;
@@ -48,8 +49,9 @@ public class BestScore: MonoBehaviour {
     // Update is called once per frame
     void Check()
     {
-        if(Hexagon_Game != null)
+        if (Hexagon_Game != null && Hexagon_Game.activeSelf)
         {
+            transform.parent.parent.parent.GetComponentInChildren<ButtonManager>().LoadHexagon();
             bestScore = int.Parse(RankSystem.hexagonBestScore[0].text);
 
             if (int.Parse(RankSystem.hexagonBestScore[0].text) > Score.score)
@@ -62,8 +64,9 @@ public class BestScore: MonoBehaviour {
                 Best_Score_Count.text = bestScore.ToString();
             }
         }
-        else if(Pentagon_Game != null)
+        else if (Pentagon_Game != null && Pentagon_Game.activeSelf)
         {
+            transform.parent.parent.parent.GetComponentInChildren<ButtonManager>().LoadPentagon();
             bestScore = int.Parse(RankSystem.pentagonBestScore[0].text);
 
             if (int.Parse(RankSystem.pentagonBestScore[0].text) > Score.score)
@@ -76,8 +79,10 @@ public class BestScore: MonoBehaviour {
                 Best_Score_Count.text = bestScore.ToString();
             }
         }
-        else if (Circle_Game != null) 
+        else if (Circle_Game != null && Circle_Game.activeSelf)
         {
+            transform.parent.parent.parent.GetComponentInChildren<ButtonManager>().LoadCircle();
+
             bestScore = int.Parse(RankSystem.circleBestScore[0].text);
 
             if (int.Parse(RankSystem.circleBestScore[0].text) > Score.score)

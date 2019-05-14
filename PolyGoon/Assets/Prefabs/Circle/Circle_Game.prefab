@@ -514,6 +514,7 @@ MonoBehaviour:
   - {fileID: 1936086824833126, guid: 2ce0eb9fb6923ad43ac608c8f31bda7f, type: 2}
   - {fileID: 1256977248881350, guid: 616b7c83b5b3409488cffcc4ca377276, type: 2}
   - {fileID: 1353891125188980, guid: 96fe5a7a4b3a78549972b9cbfd9f326d, type: 2}
+  - {fileID: 1353891125188980, guid: 1283726106e52ea43b49498ed3fb3e58, type: 2}
   lastObstacle: {fileID: 0}
 --- !u!114 &114108666798629422
 MonoBehaviour:
@@ -571,7 +572,7 @@ MonoBehaviour:
   - {fileID: 1721060371472546, guid: f37cc62961ecb8a4ababaafe126424d7, type: 2}
   - {fileID: 1042854174895752, guid: d471b9e7b57151b409cac06b690e9cca, type: 2}
   speed: 4
-  minDelay: 3
+  minDelay: 1.5
   maxDelay: 10
 --- !u!114 &114863489382667426
 MonoBehaviour:

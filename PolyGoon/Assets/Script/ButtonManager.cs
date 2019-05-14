@@ -139,6 +139,7 @@ public class ButtonManager : MonoBehaviour
     }           
     public void Active_Rank()           //랭킹창 활성화
     {
+        LoadHexagon();
         Rank.SetActive(true);
         pOption.SetActive(false);
     }          
@@ -184,24 +185,55 @@ public class ButtonManager : MonoBehaviour
     {
         for (int i = 0; i < 10; i++)
         {
-            RankSystem.hexagonPlayerName[i].text = PlayerPrefs.GetString("Hexagon Best Player " + i, RankSystem.hexagonPlayerName[i].text);
-            RankSystem.hexagonBestScore[i].text = PlayerPrefs.GetString("Hexagon Best Score " + i, RankSystem.hexagonBestScore[i].text);
+            if (PlayerPrefs.HasKey("Hexagon Best Player " + i) == true)
+            {
+                RankSystem.hexagonPlayerName[i].text = PlayerPrefs.GetString("Hexagon Best Player " + i, RankSystem.hexagonPlayerName[i].text);
+            }
+            else { RankSystem.hexagonPlayerName[i].text = ""; }
+
+            if (PlayerPrefs.HasKey("Hexagon Best Score " + i) == true)
+            {
+                RankSystem.hexagonBestScore[i].text = PlayerPrefs.GetString("Hexagon Best Score " + i, RankSystem.hexagonBestScore[i].text);
+            }
+            else { RankSystem.hexagonBestScore[i].text = "0"; }
         }
     }
     public void LoadPentagon()          //펜타곤 랭킹 불러오기
     {
         for (int i = 0; i < 10; i++)
         {
-            RankSystem.pentagonPlayerName[i].text = PlayerPrefs.GetString("Pentagon Best Player " + i, RankSystem.pentagonPlayerName[i].text);
-            RankSystem.pentagonBestScore[i].text = PlayerPrefs.GetString("Pentagon Best Score " + i, RankSystem.pentagonBestScore[i].text);
+            if (PlayerPrefs.HasKey("Pentagon Best Player " + i) == true)
+            {
+                RankSystem.pentagonPlayerName[i].text = PlayerPrefs.GetString("Pentagon Best Player " + i, RankSystem.pentagonPlayerName[i].text);
+            }
+            else { RankSystem.pentagonPlayerName[i].text = ""; }
+
+            if (PlayerPrefs.HasKey("Pentagon Best Score " + i) == true)
+            {
+                RankSystem.pentagonBestScore[i].text = PlayerPrefs.GetString("Pentagon Best Score " + i, RankSystem.pentagonBestScore[i].text);
+            }
+            else
+            {
+                RankSystem.pentagonPlayerName[i].text = "";
+                RankSystem.pentagonBestScore[i].text = "0";
+            }
         }
     }
     public void LoadCircle()            //원 랭킹 불러오기
     {
         for (int i = 0; i < 10; i++)
         {
-            RankSystem.circlePlayerName[i].text = PlayerPrefs.GetString("Circle Best Player " + i, RankSystem.circlePlayerName[i].text);
-            RankSystem.circleBestScore[i].text = PlayerPrefs.GetString("Circle Best Score " + i, RankSystem.circleBestScore[i].text);
+            if (PlayerPrefs.HasKey("Circle Best Player " + i) == true)
+            {
+                RankSystem.circlePlayerName[i].text = PlayerPrefs.GetString("Circle Best Player " + i, RankSystem.circlePlayerName[i].text);
+            }
+            else { RankSystem.circlePlayerName[i].text = ""; }
+
+            if (PlayerPrefs.HasKey("Circle Best Score " + i) == true)
+            {
+                RankSystem.circleBestScore[i].text = PlayerPrefs.GetString("Circle Best Score " + i, RankSystem.circleBestScore[i].text);
+            }
+            else { RankSystem.circleBestScore[i].text = "0"; }
         }
     }
 }

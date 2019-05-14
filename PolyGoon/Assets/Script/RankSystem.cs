@@ -30,16 +30,12 @@ public class RankSystem : MonoBehaviour
              circlePlayerName[i] = nameText.GetChild(i).GetComponent<Text>();
              circleBestScore[i] = scoreText.GetChild(i).GetComponent<Text>();
         }
-        transform.parent.parent.GetComponentInChildren<ButtonManager>().LoadHexagon();
-    }
-    
-    void Update()
-    {
-
     }
     
     static void SaveHexagon()
     {
+        if (ButtonManager.Hexagon_Game.activeSelf == false) { return; }
+
         for (int i = 0; i < 10; i++)
         {
             PlayerPrefs.SetString("Hexagon Best Player " + i, hexagonPlayerName[i].text);
@@ -48,6 +44,8 @@ public class RankSystem : MonoBehaviour
     }
     static void SavePentagon()
     {
+        if (ButtonManager.Pentagon_Game.activeSelf == false) { return; }
+
         for (int i = 0; i < 10; i++)
         {
             PlayerPrefs.SetString("Pentagon Best Player " + i, pentagonPlayerName[i].text);
@@ -56,6 +54,8 @@ public class RankSystem : MonoBehaviour
     }
     static void SaveCircle()
     {
+        if (ButtonManager.Circle_Game.activeSelf == false) { return; }
+
         for (int i = 0; i < 10; i++)
         {
             PlayerPrefs.SetString("Circle Best Player " + i, circlePlayerName[i].text);
@@ -67,6 +67,7 @@ public class RankSystem : MonoBehaviour
     {
         if (ButtonManager.Hexagon_Game.activeSelf == true)
         {
+            transform.parent.parent.GetComponentInChildren<ButtonManager>().LoadHexagon();
             int j = 0;
             for (int i = 0; i < 10; i++)
             {
@@ -88,6 +89,7 @@ public class RankSystem : MonoBehaviour
         }
         else if (ButtonManager.Pentagon_Game.activeSelf == true)
         {
+            transform.parent.parent.GetComponentInChildren<ButtonManager>().LoadPentagon();
             int j = 0;
             for (int i = 0; i < 10; i++)
             {
@@ -108,6 +110,7 @@ public class RankSystem : MonoBehaviour
         }
         else if (ButtonManager.Circle_Game.activeSelf == true)
         {
+            transform.parent.parent.GetComponentInChildren<ButtonManager>().LoadCircle();
             int j = 0;
             for (int i = 0; i < 10; i++)
             {
